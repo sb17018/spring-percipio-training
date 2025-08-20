@@ -18,15 +18,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/auth")
 @Slf4j
 public class AuthController {
-
     private final AuthService authService;
-
     public AuthController(AuthService authService) {
         this.authService = authService;
     }
-
-
-    @GetMapping("/enter")
+    @GetMapping("/login")
     public String loginPage(Model model){
         model.addAttribute("user", new BlogUser());
         model.addAttribute("active", "login");

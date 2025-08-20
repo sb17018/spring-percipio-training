@@ -35,7 +35,7 @@
 <!--<div id="loginContent" class="tab-content active">-->
 <div id="loginContent" th:classappend="${active=='login'}?'tab-content active':'tab-content'">
     <h2>Login</h2>
-    <form th:action="@{/auth/enter}" method="post">
+    <form th:action="@{/auth/login}" method="post">
         <div class="form-group">
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
