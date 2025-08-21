@@ -34,6 +34,9 @@ public class SecurityConfiguration {
                 .failureUrl("/auth/login?error")
         );
 
+        httpSecurity.logout(logout -> logout
+                .logoutUrl("/auth/logout")
+        );
 
         return httpSecurity.build();
     }
