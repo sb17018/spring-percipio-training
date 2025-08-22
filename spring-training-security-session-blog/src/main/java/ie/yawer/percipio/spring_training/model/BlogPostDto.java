@@ -1,10 +1,8 @@
 package ie.yawer.percipio.spring_training.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Getter
-@Setter
+@Data
 public class BlogPostDto {
     private String title;
     private String content;

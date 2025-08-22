@@ -6,6 +6,7 @@ import ie.yawer.percipio.spring_training.model.BlogUser;
 import ie.yawer.percipio.spring_training.repository.BlogPostRepository;
 import ie.yawer.percipio.spring_training.repository.BlogUserRepository;
 //import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,13 +25,13 @@ public class BlogService {
 
     public List<BlogPost> getUserPosts(String username){
         Optional<BlogUser> blogUserOptional  = blogUserRepository.findByUsername(username);
-//        if(blogUserOptional .isEmpty()) throw new UsernameNotFoundException("User " + username + " not found");
+        if(blogUserOptional .isEmpty()) throw new UsernameNotFoundException("User " + username + " not found");
         return blogPostRepository.findByAuthorOrderByCreatedAtDesc(blogUserOptional.get());
     };
 
     public BlogPost saveBlogPost(BlogPostDto blogPostDto, String username){
         Optional<BlogUser> blogUserOptional = blogUserRepository.findByUsername(username);
-//        if(blogUserOptional.isEmpty()) throw new UsernameNotFoundException("User " + username + " not found");
+        if(blogUserOptional.isEmpty()) throw new UsernameNotFoundException("User " + username + " not found");
         BlogPost blogPost = new BlogPost(blogPostDto.getTitle(), blogPostDto.getContent(), blogUserOptional.get());
         return blogPostRepository.save(blogPost);
     }

@@ -6,7 +6,7 @@ spring:
       username: user
       password: '{noop}password'
   datasource:
-    url: jdbc:h2:mem:blog
+    url: jdbc:h2:mem:blog;MODE=MSSQLServer # MODE=MSSQLServer is used to make "SCOPE_IDENTITY()" function in "data.sql" file working
     driverClassName: org.h2.Driver
     username: sa
     password:
@@ -20,7 +20,14 @@ spring:
       settings:
         trace: false
         web-allow-others: false
-
+server:
+  servlet:
+    session:
+      cookie:
+        name: BLOGDATA
+        http-only: true
+        max-age: 5m
+      timeout: 5m
 logging:
   level:
     org:

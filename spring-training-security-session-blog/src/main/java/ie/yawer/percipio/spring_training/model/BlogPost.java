@@ -3,7 +3,6 @@ package ie.yawer.percipio.spring_training.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
-
 import java.time.LocalDateTime;
 
 @Entity
@@ -34,4 +33,6 @@ public class BlogPost {
         this.content = content;
         this.author = author;
     }
+
+    public BlogPost(){}
 }
